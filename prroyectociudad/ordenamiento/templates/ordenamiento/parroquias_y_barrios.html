@@ -1,0 +1,16 @@
+
+<h1>Parroquias y sus Barrios</h1>
+<ul>
+  {% for parroquia in parroquias %}
+    <li>
+      <strong>{{ parroquia.nombre }}</strong> ({{ parroquia.tipo }} - {{ parroquia.ubicacion }})
+      <ul>
+        {% for barrio in parroquia.barrios.all %}
+          <li>{{ barrio.nombre }} - {{ barrio.numero_viviendas }} viviendas</li>
+        {% empty %}
+          <li>No hay barrios registrados</li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
